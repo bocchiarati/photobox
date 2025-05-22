@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index td8 : fetch</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<main id="photo">
+	<h1>Photo : 105</h1>
+	<section id="la_photo"></section>
+</main>
+
+<!-- 🧩 Template Handlebars -->
+<script id="photoTemplate" type="text/x-handlebars-template">
+	<img src="{{photoUrl}}" alt="Photo">
+	<h4 id="le_titre">Titre : {{titre}}</h4>
+	<p id="la_description">Description : {{description}}</p>
+	<p id="les_info">{{type}}, {{width}} x {{height}}</p>
+	<h4 id="la_categorie">Categorie : {{categorie}}</h4>
+	<h4>Commentaires :</h4>
+	<ul id="les_commentaires">
+		{{#each commentaires}}
+			<li>{{pseudo}} : {{content}}</li>
+		{{/each}}
+	</ul>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="module" src="js/index.js" defer></script>
+</body>
+</html>
