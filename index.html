@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>index td8 : fetch</title>
+	<title>PhotoBox</title>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
-<main id="photo">
-	<h1>Photo : 105</h1>
+<main>
+	<div id="gallery_container">
+		<button id="first">First</button>
+		<button id="prev">Prev</button>
+		<button id="load">Load</button>
+		<button id="next">Next</button>
+		<button id="last">Last</button>
+		<section id="gallery"></section>
+	</div>
 	<section id="la_photo"></section>
 </main>
 
+
 <!-- 🧩 Template Handlebars -->
 <script id="photoTemplate" type="text/x-handlebars-template">
+	<h1>Photo : {{ idPhoto }}</h1>
 	<img src="{{photoUrl}}" alt="Photo">
 	<h4 id="le_titre">Titre : {{titre}}</h4>
 	<p id="la_description">Description : {{description}}</p>
@@ -24,6 +35,12 @@
 			<li>{{pseudo}} : {{content}}</li>
 		{{/each}}
 	</ul>
+</script>
+
+<script id="collectionTemplate" type="text/x-handlebars-template">
+	{{#each photos as |photo|}}
+		<a id="{{photo.pictureId}}" class="displayPicture"><img src="{{../webetu}}{{photo.pictureUrl}}" alt="Photo"></a>
+	{{/each}}
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
